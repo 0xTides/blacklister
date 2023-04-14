@@ -27,7 +27,5 @@ To use the Slack notification feature, you will need to replace the SLACK_WEBHOO
 ```python3 blacklister.py -i google.com,test.com```
 
 Alternatively, you can run the command without the -i option, and the tool will prompt you to enter the IP addresses.
-
 Wait for the tool to finish checking the IP addresses. The tool will output which blacklists each IP address is blacklisted on.
-
 If any of the IP addresses are blacklisted, the tool will send a notification to your Slack channel.
