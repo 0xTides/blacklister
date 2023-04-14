@@ -50,6 +50,10 @@ def check_ip_address(ip_address):
     return blacklisted
 
 def send_slack_notification(ip_addresses, blacklists):
+    if not SLACK_WEBHOOK_URL:
+        print("No Slack webhook URL provided, notifications will not be sent.")
+        return
+
     message = "Blacklist check:\n"
     for i, ip_address in enumerate(ip_addresses):
         if blacklists[i]:
