@@ -36,8 +36,10 @@ def check_ip_address(ip_address):
             answers = dns.resolver.resolve(query, "A")
             # If the DNS lookup returns a result, the IP address is blacklisted
             blacklisted.append(blacklist)
+            print(f"\033[31mThe IP address {ip_address} is blacklisted on {blacklist}\033[0m")
         except dns.resolver.NXDOMAIN:
             # If the DNS lookup fails, the IP address is not blacklisted on this blacklist
+            print(f"\033[32mThe IP address {ip_address} is not blacklisted on {blacklist}\033[0m")
             pass
 
     if blacklisted:
@@ -51,7 +53,7 @@ def send_slack_notification(ip_addresses, blacklists):
     message = "Blacklist check:\n"
     for i, ip_address in enumerate(ip_addresses):
         if blacklists[i]:
-            message += f"- @here {ip_address} is blacklisted on the following blacklists: {', '.join(blacklists[i])}\n"
+            message += f"- @here {ip_address} is blacklisted on the following blacklists: {', '.join(blacklists[i])}"
         else:
             message += f"- {ip_address} is not blacklisted on any of the known blacklists.\n"
     payload = {
