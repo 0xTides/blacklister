@@ -15,7 +15,7 @@ To use the Slack notification feature, you will need to replace the SLACK_WEBHOO
 3. Open a terminal or command prompt and navigate to the directory where the repository is located.
 
 4. Install the required packages by running the following command:
-''' pip3 install -r requirements '''
+```pip3 install -r requirements```
 
 6. Open the blacklister.py file in your preferred text editor.
 
@@ -24,7 +24,7 @@ To use the Slack notification feature, you will need to replace the SLACK_WEBHOO
 8. Save the file and close the text editor.
 
 9. In the terminal or command prompt, run the following command:
-''' python3 blacklister.py -i google.com,test.com '''
+```python3 blacklister.py -i google.com,test.com```
 
 Alternatively, you can run the command without the -i option, and the tool will prompt you to enter the IP addresses.
 
