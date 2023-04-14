@@ -3,6 +3,9 @@ import requests
 import logging
 import os
 
+# Replace this URL with your own Slack webhook URL
+SLACK_WEBHOOK_URL = ""
+
 BLACKLISTS = [
     "zen.spamhaus.org",
     "dnsbl.sorbs.net",
@@ -14,9 +17,6 @@ BLACKLISTS = [
     "b.barracudacentral.org",
     # Add more blacklists here
 ]
-
-# Replace this URL with your own Slack webhook URL
-SLACK_WEBHOOK_URL = ""
 
 # Create a logs directory if it doesn't exist
 LOGS_DIR = "logs"
@@ -84,5 +84,5 @@ if __name__ == '__main__':
     for ip_address in ip_addresses:
         blacklisted = check_ip_address(ip_address.strip())
         blacklists.append(blacklisted)
-
+        
     send_slack_notification(ip_addresses, blacklists)
